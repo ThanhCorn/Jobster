@@ -1,15 +1,18 @@
-import { FC, useState } from 'react'
-import './assets/styles/app.css'
-import './assets/styles/app.scss'
-
-const App: FC = () => {
-  const [fullname] = useState('Dư Thanh Được')
-  console.log(fullname)
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { Dashboard, Landing, Register, Error } from './pages'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+const App = () => {
   return (
-    <div>
-      <img src='' alt='React Logo' width={100} height={100} />
-      <h1>{fullname}</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/landing' element={<Landing />} />
+        <Route path='/' element={<Dashboard />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='*' element={<Error />} />
+      </Routes>
+      <ToastContainer position='top-center' />
+    </BrowserRouter>
   )
 }
 
