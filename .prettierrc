@@ -1,7 +1,9 @@
 {
-  "arrowParens": "always",
+  "arrowParens": "avoid",
   "semi": false,
   "trailingComma": "none",
+  "eslintIntegration": true,
+  "stylelintIntegration": true,
   "tabWidth": 2,
   "endOfLine": "auto",
   "useTabs": false,

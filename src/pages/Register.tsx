@@ -12,6 +12,7 @@ const initialState = {
   password: '',
   isMember: true
 }
+
 const Register = () => {
   const [values, setValues] = useState(initialState)
   const { user, isLoading } = useSelector((state: RootState) => state.user)
@@ -22,6 +23,7 @@ const Register = () => {
     const value = e.target.value
     setValues({ ...values, [name]: value })
   }
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const { name, email, password, isMember } = values
@@ -58,7 +60,7 @@ const Register = () => {
           name='email'
           value={values.email}
           handleChange={handleChange}
-              />
+        />
         {/* prettier-ignore */}
         <FormRow
           type='password'
@@ -66,8 +68,8 @@ const Register = () => {
           value={values.password}
           handleChange={handleChange}
         />
-        <button className='btn btn-block' type='submit'>
-          submit
+        <button className='btn btn-block' type='submit' disabled={isLoading}>
+          {isLoading ? 'Loading...' : 'submit'}
         </button>
         <p>
           {values.isMember ? 'Not a member yet?' : 'already a member'}
